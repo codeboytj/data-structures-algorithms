@@ -42,6 +42,64 @@ public class ArrayRotate {
     }
 
     /**
+     * 块旋转算法：旋转向量x就是交换向量ab的位置，得到向量ba。这里a代表了x中的前i个元素。假设a比b短，将b分为b1与b2，是的b2具有
+     * a相同的长度。交换a与b2，也就将ab1b2转换成b2b1a。这是，a就处于最终的位置了，因此现在的问题就是交换b的两部分了。由于新问题与
+     * 元问题有相同的形式，就能够递归地解决了。
+     * @param s 要旋转的向量
+     * @param rotdist 旋转rotdist位置
+     * @return 最终结果
+     */
+    public String blockRotate(String s,int rotdist){
+        //在[0,s.length())范围内操作
+        //整个问题是将[startPC,rotdist)与[rotdist,endPC)互换
+        int startPC=0;int endPC=s.length();
+        char[] t=s.toCharArray();
+        singleBlockRotate(t,startPC,rotdist,endPC);
+        return String.copyValueOf(t);
+    }
+
+    /**
+     * 将数组x的a向量(x[startPC,rotdist))与b向量(x[rotdist,endPC])互换
+     * @param t 初始向量
+     * @param startPC 起始位置
+     * @param rotdist 向左rotdist-startPC位
+     * @param endPC 结束位置
+     */
+    public void singleBlockRotate(char[] t,int startPC,int rotdist,int endPC){
+        //左右两边向量长度
+        int leftLen=rotdist-startPC;int rightLen=endPC-rotdist;
+
+        //比较左右两边长度
+        int compareResult=rightLen-leftLen;
+        /*
+        偏移位
+        如果后段大于前段，则交换a[startPC,rotdist)与b[rotdist+offset,endPC);
+        如果后段小于前段，则交换a[startPC,singleLen)与b[rotdist+0,endPC)。
+         */
+        int offset=0;
+        if (compareResult>0){
+            offset=rightLen-leftLen;
+        }
+        //每次交换的长度
+        int singleLen=rightLen-offset;
+
+        //互换首尾两端
+        char tmp;
+        for(int i=0;i<singleLen;i++){
+            tmp=t[startPC+i];t[startPC+i]=t[rotdist+offset+i];t[rotdist+offset+i]=tmp;
+        }
+
+        //此时，进行递归
+        if(compareResult>0){
+            singleBlockRotate(t,startPC,rotdist,rotdist+compareResult);
+        }else if(compareResult==0){
+            return;
+        }else {
+            singleBlockRotate(t,rotdist+compareResult,rotdist,endPC);
+        }
+    }
+
+    /**
      * 求最大公约数的欧几里得算法
      * @param i ，不为0的整数
      * @param j，不为0的整数

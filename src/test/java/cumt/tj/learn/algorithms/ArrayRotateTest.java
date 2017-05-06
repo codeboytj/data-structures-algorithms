@@ -10,9 +10,17 @@ import static org.junit.Assert.assertEquals;
 public class ArrayRotateTest {
     @Test
     public void acrobaticsRotate(){
-        String s="abcdefghi";
+        String s="abcdefgh";
         ArrayRotate arrayRotate=new ArrayRotate();
         String result=arrayRotate.acrobaticsRotate(s,3);
-        assertEquals(result,"defghiabc");
+        assertEquals(result,"defghabc");
+    }
+
+    @Test
+    public void blockRotate(){
+        String s="abcdefgh";
+        ArrayRotate arrayRotate=new ArrayRotate();
+        String result=arrayRotate.blockRotate(s,4);
+        assertEquals(result,"efghabcd");
     }
 }
