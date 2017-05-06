@@ -20,7 +20,15 @@ public class ArrayRotateTest {
     public void blockRotate(){
         String s="abcdefgh";
         ArrayRotate arrayRotate=new ArrayRotate();
-        String result=arrayRotate.blockRotate(s,4);
+        String result=arrayRotate.blockRotate(s,3);
+        assertEquals(result,"defghabc");
+    }
+
+    @Test
+    public void reverseRotate(){
+        String s="abcdefgh";
+        ArrayRotate arrayRotate=new ArrayRotate();
+        String result=arrayRotate.reverseRotate(s,4);
         assertEquals(result,"efghabcd");
     }
 }

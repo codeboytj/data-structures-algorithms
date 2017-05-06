@@ -100,6 +100,36 @@ public class ArrayRotate {
     }
 
     /**
+     * 求逆旋转,太简单了，不解释
+     * @param s
+     * @param rotdist
+     * @return
+     */
+    public String reverseRotate(String s,int rotdist){
+        int startPC=0;int endPC=s.length();
+        char[] t=s.toCharArray();
+        reverseArray(t,startPC,rotdist);
+        reverseArray(t,rotdist,endPC);
+        reverseArray(t,startPC,endPC);
+        return String.copyValueOf(t);
+    }
+
+    /**
+     * 给数组的一段求逆
+     * 如给数组a=abcdefg的[1,3)的这段求逆，结果：adcbefg
+     * @param t 输入数组
+     * @param startPC 起始位置
+     * @param endPC 结束位置
+     */
+    public void reverseArray(char[] t,int startPC,int endPC){
+        int center=(endPC-startPC)/2;
+        char tmp;
+        for(int i=0;i<center;i++){
+            tmp=t[startPC+i];t[startPC+i]=t[endPC-i-1];t[endPC-i-1]=tmp;
+        }
+    }
+
+    /**
      * 求最大公约数的欧几里得算法
      * @param i ，不为0的整数
      * @param j，不为0的整数
