@@ -1,5 +1,6 @@
-package cumt.tj.learn.algorithms;
+package cumt.tj.learn.algorithms.vector;
 
+import cumt.tj.learn.algorithms.vector.ArrayRotate;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

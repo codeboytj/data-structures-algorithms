@@ -1,4 +1,4 @@
-package cumt.tj.learn.algorithms;
+package cumt.tj.learn.algorithms.vector;
 
 /**
  * Created by sky on 17-4-28.

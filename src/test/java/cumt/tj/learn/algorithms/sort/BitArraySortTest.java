@@ -41,7 +41,7 @@ public class BitArraySortTest {
     @Test
     public void sortTest() throws IOException {
         BitArraySort bitArraySort=new BitArraySort();
-        bitArraySort.sort("./test1.txt",10000000,"result1.txt");
+        //bitArraySort.sort("./test1.txt",10000000,"result1.txt");
         bitArraySort.sort("./test.txt",10000000,"result.txt");
     }
 }
