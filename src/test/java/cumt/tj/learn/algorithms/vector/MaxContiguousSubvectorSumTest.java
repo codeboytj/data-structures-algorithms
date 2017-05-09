@@ -15,4 +15,24 @@ public class MaxContiguousSubvectorSumTest {
         MaxContiguousSubvectorSum maxContiguousSubvectorSum=new MaxContiguousSubvectorSum();
         assertEquals(187,maxContiguousSubvectorSum.simpleAlgorithms(a));
     }
+
+    @Test
+    public void squareAlgorithms(){
+        int[] a={31,-41,59,26,-53,58,97,-93,-23,84};
+        MaxContiguousSubvectorSum maxContiguousSubvectorSum=new MaxContiguousSubvectorSum();
+        assertEquals(187,maxContiguousSubvectorSum.squareAlgorithms(a));
+    }
+
+    @Test
+    public void sdivideAndConquerAlgorithm(){
+        int[] a={31,-41,59,26,-53,58,97,-93,-23,84,-13};
+        MaxContiguousSubvectorSum maxContiguousSubvectorSum=new MaxContiguousSubvectorSum();
+        assertEquals(187,maxContiguousSubvectorSum.divideAndConquerAlgorithms(a));
+    }
+    @Test
+    public void scanAlgorithm(){
+        int[] a={31,-41,59,26,-53,58,97,-93,-23,84,-13};
+        MaxContiguousSubvectorSum maxContiguousSubvectorSum=new MaxContiguousSubvectorSum();
+        assertEquals(187,maxContiguousSubvectorSum.scanAlgorithms(a));
+    }
 }
