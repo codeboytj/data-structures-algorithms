@@ -11,4 +11,6 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
+    // https://mvnrepository.com/artifact/org.hamcrest/hamcrest-library
+    testCompile group: 'org.hamcrest', name: 'hamcrest-library', version: '1.3'
 }
