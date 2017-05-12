@@ -11,7 +11,7 @@ import java.util.Set;
 public class Sample {
 
     /**
-     * 从[0,n)的范围内,随机取样m个整数
+     * 从[0,n)的范围内,随机取样m个整数，不允许重复
      * @param m 取样的个数
      * @param n 取样范围[0,n)
      * @return 选取的整数组成的数组
@@ -35,7 +35,7 @@ public class Sample {
     }
 
     /**
-     * 通过往Set中插入随机数，插满为止
+     * 通过往Set中插入随机数，插满为止,不允许重复
      * @param m 取样的个数
      * @param n 取样范围[0,n)
      * @return 选取的整数组成的数组
