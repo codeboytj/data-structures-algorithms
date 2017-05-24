@@ -12,17 +12,6 @@ import java.util.Map;
  */
 public class Expression {
 
-    //运算符优先级
-    private Map<Character,Integer> operatorPriority=new HashMap<Character,Integer>();
-    {
-        //暂只支持加减乘除运算
-        operatorPriority.put('+',1);
-        operatorPriority.put('-',1);
-        operatorPriority.put('*',2);
-        operatorPriority.put('/',2);
-        operatorPriority.put('(',3);
-        operatorPriority.put(')',3);
-    }
     /**
      * 中缀表达式变后缀表达式
      * @return 后缀表达式数组
@@ -47,29 +36,43 @@ public class Expression {
             priority=getPriority(item);
 
             if(priority==-1){
+                //如果是操作数，那么压入操作数组
                 postFix[j++]=item;
             }else{
                 try {
+                    //如果是操作符，那么将操作符栈顶操作符拿出来比较优先级
                     topOperator = operatorStack.pop();
                 }catch (NullPointerException e){
+                    //如果操作符栈里面什么都没有，就压入操作符，然后进行下一步循环
                     operatorStack.push(item);
                     continue;
                 }
-                if(getPriority(topOperator)<priority){
-                    //2.1 如果操作符o的优先级高于栈顶操作符，则压入操作符栈，为了保持原栈不变，现将原来的栈顶元素压入
+                if(getPriority(topOperator)<priority&&item!=')'){
+                    //2.1 如果操作符o的优先级高于栈顶操作符且不是右括号，则压入操作符栈，为了保持原栈不变，现将原来的栈顶元素压入
                     operatorStack.push(topOperator);
                     operatorStack.push(item);
                 }else {
                     //2.2 如果操作符o的优先级不高于栈顶操作符，则将操作符栈顶开始连续高于或等于o的操作符全部弹出，并按出栈的先后顺序，加入后缀表示数组
-                    postFix[j++]=topOperator;
-                    while (!operatorStack.isEmpty()){
-                        topOperator=operatorStack.pop();
-                        if (getPriority(topOperator)<=priority){
+                    if(topOperator=='('){
+                        operatorStack.push(topOperator);
+                    }else {
+                        postFix[j++]=topOperator;
+                        while (!operatorStack.isEmpty()){
+                            topOperator=operatorStack.pop();
+                            if (getPriority(topOperator)<priority){
+                                //如果栈顶操作符优先级小于o的优先级，结束出栈行为
+                                break;
+                            }
                             if(topOperator!=Character.valueOf('(')){
                                 postFix[j++]=topOperator;
+                            }else {
+                                //如果没有遇到')'，那么'('不出栈
+                                if(item!=')') operatorStack.push(topOperator);
+                                break;
                             }
                         }
                     }
+                    //操作符入栈
                     if(item!=')'){
                         operatorStack.push(item);
                     }
@@ -77,6 +80,7 @@ public class Expression {
             }
         }
 
+        //中缀表达式里面弄完了，但是操作符栈里还有东西，就全部弄出来
         while (!operatorStack.isEmpty()){
             topOperator=operatorStack.pop();
             postFix[j++]=topOperator;
