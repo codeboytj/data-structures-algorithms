@@ -1,4 +1,4 @@
-package cumt.tj.learn.structures;
+package cumt.tj.learn.structures.tree;
 
 /**
  * Created by sky on 17-5-11.

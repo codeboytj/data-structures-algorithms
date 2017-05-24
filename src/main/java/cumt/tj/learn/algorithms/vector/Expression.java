@@ -1,16 +1,75 @@
 package cumt.tj.learn.algorithms.vector;
 
-import cumt.tj.learn.structures.stack.ArrayStack;
 import cumt.tj.learn.structures.stack.LinkedStack;
-
-import java.util.HashMap;
-import java.util.Map;
+import cumt.tj.learn.structures.tree.BinaryTree;
+import cumt.tj.learn.structures.tree.BinaryTreeNode;
 
 /**
  * Created by sky on 17-5-13.
  * 表达式操作，先缀、中缀以及后缀表达式操作
  */
 public class Expression {
+
+    /**
+     * 后缀表达式变成表达式树
+     * @param postfix 表达式数组，它肯定是字符型数组
+     * @return 二叉表达式树
+     */
+    @Deprecated
+    public BinaryTree<Character> postfixToTree(char[] postfix){
+        //树栈
+        LinkedStack<BinaryTree> treeStack=new LinkedStack<BinaryTree>();
+        //遇到操作符时，从栈顶弹出的两颗子树
+        BinaryTree<Character> leftTree;
+        BinaryTree<Character> rightTree;
+        //1. 遍历后缀表达式
+        for(int i=0;i<postfix.length;i++){
+            if (getPriority(postfix[i])==-1){
+                //2. 遇到操作数就建立一个单节点树并将它推入栈中
+//                treeStack.push(new BinaryTree(Character.valueOf(postfix[i])));
+                treeStack.push(new BinaryTree(postfix[i]));
+            }else {
+                //3. 遇到操作符就从栈中弹出两颗树，并形成一颗新树压入栈
+                //3.1 弹出两颗树
+                rightTree=treeStack.pop();
+                leftTree=treeStack.pop();
+                //3.2 形成新树并压入栈
+                treeStack.push(new BinaryTree(postfix[i],leftTree.getRootNode(),rightTree.getRootNode()));
+            }
+        }
+
+        return treeStack.pop();
+    }
+
+    /**
+     * 后缀变成树
+     * @param postfix 后缀表示式
+     * @return 二叉表达式树
+     */
+    public BinaryTreeNode<Character> postfixToBinaryTree(char[] postfix){
+        //树栈
+        LinkedStack<BinaryTreeNode> treeStack=new LinkedStack<BinaryTreeNode>();
+        //遇到操作符时，从栈顶弹出的两颗子树
+        BinaryTreeNode<Character> leftTree;
+        BinaryTreeNode<Character> rightTree;
+        //1. 遍历后缀表达式
+        for(int i=0;i<postfix.length;i++){
+            if (getPriority(postfix[i])==-1){
+                //2. 遇到操作数就建立一个单节点树并将它推入栈中
+//                treeStack.push(new BinaryTree(Character.valueOf(postfix[i])));
+                treeStack.push(new BinaryTreeNode(postfix[i]));
+            }else {
+                //3. 遇到操作符就从栈中弹出两颗树，并形成一颗新树压入栈
+                //3.1 弹出两颗树
+                rightTree=treeStack.pop();
+                leftTree=treeStack.pop();
+                //3.2 形成新树并压入栈
+                treeStack.push(new BinaryTreeNode(postfix[i],leftTree,rightTree));
+            }
+        }
+
+        return treeStack.pop();
+    }
 
     /**
      * 中缀表达式变后缀表达式
