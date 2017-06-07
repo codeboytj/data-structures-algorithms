@@ -1,4 +1,4 @@
-package cumt.tj.learn.structures;
+package cumt.tj.learn.structures.hash;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -179,7 +179,8 @@ public class SeparateChainingHashTable<K,V> {
      * @param n 我就是n，^_^，哇哈哈哈……
      * @return 刚好比n大的素数
      */
-    private int nextPrime(int n){
+    static int nextPrime(int n){
+//        private int nextPrime(int n){
         int m=n;
 
         while(!isPrime(m)){
@@ -195,7 +196,8 @@ public class SeparateChainingHashTable<K,V> {
      * @param m 没错，我就是传说中的m
      * @return 娃哈哈……
      */
-    private boolean isPrime(int m){
+    static boolean isPrime(int m){
+//        private boolean isPrime(int m){
         if(m<=3){
             //[1,3]之内的数，除了1,都是素数
             return m>1;

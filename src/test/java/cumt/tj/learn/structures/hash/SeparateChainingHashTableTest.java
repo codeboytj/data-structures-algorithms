@@ -1,6 +1,6 @@
-package cumt.tj.learn.structures.stack;
+package cumt.tj.learn.structures.hash;
 
-import cumt.tj.learn.structures.SeparateChainingHashTable;
+import cumt.tj.learn.structures.hash.SeparateChainingHashTable;
 import org.junit.Test;
 
 import java.lang.reflect.Constructor;
@@ -96,7 +96,7 @@ public class SeparateChainingHashTableTest {
         Class[] cs=separateChainingHashTable.getClass().getDeclaredClasses();
         Class nodeClass=null;
         for(int i=0;i<cs.length;i++){
-            if (cs[i].getName()=="cumt.tj.learn.structures.SeparateChainingHashTable$Node") nodeClass=cs[i];
+            if (cs[i].getName()=="cumt.tj.learn.structures.hash.SeparateChainingHashTable$Node") nodeClass=cs[i];
         }
         List<HashMap<String,String>> hashMapList=new LinkedList<HashMap<String, String>>();
         List<Object> ol=new LinkedList<Object>();
