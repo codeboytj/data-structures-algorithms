@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by sky on 17-6-3.
  * 数据结构与算法分析java版，第5章散列
- * 通过分离链表法解决冲突
+ * 通过分离链表法解决冲突，这个实现是利用key计算hash的
  */
 public class SeparateChainingHashTable<K,V> {
 
@@ -49,8 +49,9 @@ public class SeparateChainingHashTable<K,V> {
         if(theList.contains(node)){
             //有就删除
             theList.remove(node);
-        }
 
+        }
+        //将已经存在的东东删掉就不会出现一个key对应对个value的情况了
         theList.add(node);
 
         if(++currentSize>hashTable.length){
@@ -61,27 +62,53 @@ public class SeparateChainingHashTable<K,V> {
                  */
             rehash();
         }
-
-//        //然后，插入到hashTable相应索引的链表之中
-//        //当然，先要判断是不是已经在里面了
-//        if(!theList.contains(node)){
-//            theList.add(node);
-//
-//            if(++currentSize>hashTable.length){
-//                //再添加就要超过了哈希表的大小了
-//                /*
-//                这个地方涉及到一个叫充填因子的东东，这里的currentSize记录的是插入的<key,value>的个数，由于可能的冲突，
-//                一个链表可能含有多个元素，所以它不是已经有元素的链表的个数。
-//                 */
-//                rehash();
-//            }
-//        }
-
     }
 
+    /**
+     * 根据key获取value
+     * @param key 没错，我就是key
+     * @return 无情返回value，哇哈哈哈……
+     */
     public V get(K key){
-        //首先算出对应的哈希值
+
+        Node node=new Node(key,null);
+
+        //首先算出key对应的哈希值
+        int hash =myHash(node);
+        //找到对应的链表
+        List<Node> theList=hashTable[hash];
+
+        //查找是否key对应的链表的索引
+        int index=theList.indexOf(node);
+        if(index!=-1){
+            //要获取的东东存在
+            return theList.get(index).value;
+        }
+
+        //没有找到
         return null;
+    }
+
+    /**
+     * 删除键值对
+     * @param key 没错，我就是键，就是根据我删除的，娃哈哈……
+     */
+    public void remove(K key){
+        Node node=new Node(key,null);
+
+        //首先算出key对应的哈希值
+        int hash =myHash(node);
+        //找到对应的链表
+        List<Node> theList=hashTable[hash];
+
+        //查找是否key对应的链表的索引
+        int index=theList.indexOf(node);
+        if(index!=-1){
+            //要获取的东东存在
+            theList.remove(index);
+        }
+
+        //没有找到，那就不用动手删除了，娃哈哈……
     }
 
     private void rehash(){
@@ -126,7 +153,9 @@ public class SeparateChainingHashTable<K,V> {
             //key与value都想等，才认为相等
 //            if(key.equals(e.key) && value.equals(e.value)) return true;
             //只要key，就认为相等，这样就不会出现一个key对应多个value的情况
-            if(key.equals(e.key) ) return true;
+            if(key.equals(e.key) ){
+                return true;
+            }
 
             return false;
         }

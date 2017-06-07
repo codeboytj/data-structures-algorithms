@@ -31,6 +31,39 @@ public class SeparateChainingHashTableTest {
     }
 
     @Test
+    public void get(){
+        separateChainingHashTable.put("sky","tj");
+        separateChainingHashTable.put("jm","dalao");
+        separateChainingHashTable.put("jm","dalao11");
+        separateChainingHashTable.put("ch","dalao");
+        assertEquals("tj",separateChainingHashTable.get("sky"));
+        assertEquals("dalao11",separateChainingHashTable.get("jm"));
+        assertEquals("dalao",separateChainingHashTable.get("ch"));
+        assertEquals(null,separateChainingHashTable.get("ch1"));
+    }
+
+    @Test
+    public void remove(){
+        separateChainingHashTable.put("sky","tj");
+        separateChainingHashTable.put("jm","dalao");
+        separateChainingHashTable.put("jm","dalao11");
+        separateChainingHashTable.put("ch","dalao");
+
+        assertEquals("tj",separateChainingHashTable.get("sky"));
+        separateChainingHashTable.remove("sky");
+        assertEquals(null,separateChainingHashTable.get("sky"));
+
+        assertEquals("dalao11",separateChainingHashTable.get("jm"));
+        separateChainingHashTable.remove("jm");
+        assertEquals(null,separateChainingHashTable.get("jm"));
+
+        assertEquals("dalao",separateChainingHashTable.get("ch"));
+        separateChainingHashTable.remove("ch");
+        assertEquals(null,separateChainingHashTable.get("ch"));
+
+    }
+
+    @Test
     public void isPrime() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         //利用反射机制，调用私有方法
         Class c=separateChainingHashTable.getClass();
@@ -74,7 +107,9 @@ public class SeparateChainingHashTableTest {
         ol.add(nodeConstruction.newInstance(separateChainingHashTable,"jm","haha"));
         ol.add(nodeConstruction.newInstance(separateChainingHashTable,"jm","haha1"));
         ol.add(nodeConstruction.newInstance(separateChainingHashTable,"jm","haha3"));
-        assertTrue(ol.contains(nodeConstruction.newInstance(separateChainingHashTable,"jm","haha4")));
+        assertTrue(ol.contains(nodeConstruction.newInstance(separateChainingHashTable,"jm","haha1")));
+        assertTrue(ol.contains(nodeConstruction.newInstance(separateChainingHashTable,"jm","haha")));
+        assertTrue(ol.contains(nodeConstruction.newInstance(separateChainingHashTable,"jm","haha3")));
 //        ol.add(nodeClass.newInstance());
     }
 }
