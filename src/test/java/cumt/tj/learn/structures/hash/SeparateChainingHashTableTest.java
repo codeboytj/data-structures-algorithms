@@ -112,4 +112,33 @@ public class SeparateChainingHashTableTest {
         assertTrue(ol.contains(nodeConstruction.newInstance(separateChainingHashTable,"jm","haha3")));
 //        ol.add(nodeClass.newInstance());
     }
+
+    @Test
+    public void rehash(){
+        separateChainingHashTable.put("sky","tj");
+        separateChainingHashTable.put("jm","dalao");
+        separateChainingHashTable.put("jm","dalao11");
+        separateChainingHashTable.put("ch","dalao");
+        separateChainingHashTable.put("my","dalao");
+        separateChainingHashTable.put("xf","dalao");
+        separateChainingHashTable.put("mc","dalao");
+        separateChainingHashTable.put("hw","dalao");
+        separateChainingHashTable.put("1hw","dalao");
+        separateChainingHashTable.put("2hw","dalao");
+        separateChainingHashTable.put("3hw","dalao");
+        separateChainingHashTable.put("4hw","dalao");
+        separateChainingHashTable.put("5hw","dalao");
+
+
+        assertEquals("tj",separateChainingHashTable.get("sky"));
+        assertEquals("dalao11",separateChainingHashTable.get("jm"));
+        assertEquals("dalao",separateChainingHashTable.get("ch"));
+        assertEquals("dalao",separateChainingHashTable.get("mc"));
+        assertEquals("dalao",separateChainingHashTable.get("4hw"));
+
+        assertEquals(23,separateChainingHashTable.hashTable.length);
+
+
+
+    }
 }

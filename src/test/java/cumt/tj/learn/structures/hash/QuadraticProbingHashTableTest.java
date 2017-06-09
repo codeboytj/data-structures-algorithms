@@ -57,4 +57,21 @@ public class QuadraticProbingHashTableTest {
         assertTrue(!hashTable.contains("ch"));
     }
 
+    @Test
+    public void reHashTest(){
+        hashTable.put("tj","小白");
+        hashTable.put("jm","大佬");
+        hashTable.put("xf","大佬");
+        hashTable.put("ch","大佬");
+        hashTable.put("my","大佬");
+        hashTable.put("mc","大佬");
+        hashTable.put("hw","大佬");
+
+        assertTrue(hashTable.contains("tj"));
+        assertTrue(hashTable.contains("jm"));
+        assertTrue(hashTable.contains("ch"));
+
+        assertEquals(hashTable.hashTable.size(),SeparateChainingHashTable.nextPrime(22));
+    }
+
 }

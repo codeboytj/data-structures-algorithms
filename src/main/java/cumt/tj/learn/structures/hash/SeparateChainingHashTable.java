@@ -23,13 +23,8 @@ public class SeparateChainingHashTable<K,V> {
     }
 
     public SeparateChainingHashTable(int size) {
-        //找一个接近的素数，作为数组大小
-        this.hashTable = new LinkedList[nextPrime(size)];
-
-        //一次性分配空间，编程珠玑和数据结构与算法分析里面都说，一次性分配空间耗时更少，虽然我没有搞清楚为什么
-        for(int i=0;i<hashTable.length;i++){
-            hashTable[i]=new LinkedList<Node>();
-        }
+        //分配空间
+        allocateArray(size);
     }
 
     /**
@@ -112,8 +107,35 @@ public class SeparateChainingHashTable<K,V> {
     }
 
     private void rehash(){
-        //暂时不实现这个东东
+        LinkedList<Node>[] oldArray=this.hashTable;
 
+        //首先它要造一个数组，是原来的2倍大小（离2倍最近的素数）
+        allocateArray(nextPrime(oldArray.length*2));
+
+        //然后，要让原来数组里面的元素，利用重新插入到新数组里面（表的大小变化了，会影响hash值与探测，所以要重新插入）
+        for (LinkedList<Node> itemList:oldArray
+             ) {
+            if(itemList.size()!=0){
+                for (Node item:itemList
+                     ) {
+                    put(item.key,item.value);
+                }
+            }
+        }
+
+    }
+
+
+    private void allocateArray(int size){
+        //找一个接近的素数，作为数组大小
+        this.hashTable = new LinkedList[nextPrime(size)];
+
+        //一次性分配空间，编程珠玑和数据结构与算法分析里面都说，一次性分配空间耗时更少，虽然我没有搞清楚为什么
+        for(int i=0;i<hashTable.length;i++){
+            hashTable[i]=new LinkedList<Node>();
+        }
+
+        currentSize=0;
     }
 
     private int myHash(Node node){

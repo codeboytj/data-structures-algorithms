@@ -1,6 +1,8 @@
 package cumt.tj.learn.structures.hash;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by sky on 17-6-7.
@@ -22,12 +24,14 @@ public class QuadraticProbingHashTable<K,V> {
     }
 
     public QuadraticProbingHashTable(int size) {
-        hashTable=new ArrayList<HashEntry>(size);
+//        hashTable=new ArrayList<HashEntry>(size);
 //        currentLength=size;
         //先给一个null，不然插元素的时候总是越界
-        for(int i=0;i<size;i++){
-            hashTable.add(i,null);
-        }
+//        for(int i=0;i<size;i++){
+//            hashTable.add(i,null);
+//        }
+
+        allocateArray(size);
     }
 
     /**
@@ -96,9 +100,32 @@ public class QuadraticProbingHashTable<K,V> {
     }
 
     private void reHash(){
-        //暂时什么也不做，但是这里肯定会改变数组大小
-//        currentLength=currentLength;
+        List<HashEntry> oldArray=hashTable;
 
+        //首先它要造一个数组，是原来的2倍大小（离2倍最近的素数）
+        allocateArray(SeparateChainingHashTable.nextPrime(oldArray.size()*2));
+
+        //然后，要让原来数组里面的元素，利用重新插入到新数组里面（表的大小变化了，会影响hash值与探测，所以要重新插入）
+        Iterator<HashEntry> iterator=oldArray.iterator();
+        while (iterator.hasNext()){
+           HashEntry item=iterator.next();
+            if(item!=null){
+                put(item.key,item.value);
+            }
+        }
+
+    }
+
+    private void allocateArray(int length){
+        hashTable=new ArrayList<HashEntry>(length);
+
+        //先给一个null，不然插元素的时候总是越界
+        for(int i=0;i<length;i++){
+            hashTable.add(i,null);
+        }
+
+        //现在表中没有元素了
+        currentSize=0;
     }
 
     public int findPos(K key){
