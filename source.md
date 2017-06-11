@@ -1,8 +1,8 @@
-#  data-structures-algorithms
+# data-structures-algorithms
 
 《数据结构与算法分析——Java语言描述版》读书笔记。
 
-## 1. 数据结构
+## 数据结构
 
 1. [栈](./src/main/java/cumt/tj/learn/structures/stack)
 2. [队列](./src/main/java/cumt/tj/learn/structures/queue)
@@ -11,7 +11,7 @@
     1.[分离链表法实现](./src/main/java/cumt/tj/learn/structures/hash/SeparateChainingHashTable.java)
     2.[平方探测法法实现](./src/main/java/cumt/tj/learn/structures/hash/QuadraticProbingHashTable.java)
 
-## 2. 算法
+## 算法
 
 1. [搜索](./src/main/java/cumt/tj/learn/algorithms/search)
     1.[二分搜索](./src/main/java/cumt/tj/learn/algorithms/search/BinarySearch.java)
