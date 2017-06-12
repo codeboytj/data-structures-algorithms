@@ -6,6 +6,8 @@
 
 1. [栈](./src/main/java/cumt/tj/learn/structures/stack)
 2. [队列](./src/main/java/cumt/tj/learn/structures/queue)
+    1. [循环数组实现](./src/main/java/cumt/tj/learn/structures/queue/CircularArrayQueue.java)
+    2. [链表实现](./src/main/java/cumt/tj/learn/structures/queue/LinkedListQueue.java)
 3. [树](./src/main/java/cumt/tj/learn/structures/tree)
 4. [散列](./src/main/java/cumt/tj/learn/structures/hash)
     1. [分离链表法实现](./src/main/java/cumt/tj/learn/structures/hash/SeparateChainingHashTable.java)
