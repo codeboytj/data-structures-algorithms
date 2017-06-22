@@ -42,4 +42,11 @@ public class BinaryHeapTest {
         assertEquals(heap.deleteMin(),s4);
         assertEquals(heap.deleteMin(),s5);
     }
+
+    @Test
+    public void sort(){
+        Heap<String> theHeap=new BinaryHeap<String>(new String[]{"","234","123","566","12"});
+        System.out.print(theHeap.sort());
+
+    }
 }

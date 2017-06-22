@@ -21,6 +21,11 @@ public class BinaryHeap<T extends Comparable<? super T>> implements Heap<T>{
         theHeap=(T[])new Comparable[size];
     }
 
+    public BinaryHeap(T[] array){
+        theHeap=array;
+        currentSize=array.length-1;
+    }
+
     /**
      * 采用上滤的方式，往堆中插入元素
      * @param t 要插入的元素
@@ -31,13 +36,10 @@ public class BinaryHeap<T extends Comparable<? super T>> implements Heap<T>{
 
         //插入位置为当前元素个数加一，这种情况对于没有元素的时候也适用
         int hole=++currentSize;
-        for(theHeap[0]=t;t.compareTo(theHeap[hole/2])<0;hole=hole/2){
-            //当父节点大于要插入元素的时候
-            //不断上滤，将父节点下放
-            theHeap[hole]=theHeap[hole/2];
-        }
-        //最后满足了堆序性质，可以把元素插进来了
+
         theHeap[hole]=t;
+
+        siftUp(hole);
 
     }
 
@@ -56,19 +58,63 @@ public class BinaryHeap<T extends Comparable<? super T>> implements Heap<T>{
         theHeap[1]=theHeap[currentSize--];
 
         //这样，开始将不满足堆序性质的根下滤
-        siftDown(1);
+        siftDown(currentSize);
 
         return min;
 
     }
 
     /**
-     * 下滤算法，对于不满足堆序性质的theHeap[hole,currentSize]，如果theHeap[hole+1,currentSize]满足堆序性质，那么可以将
-     * theHeap[hole]下滤，得到满足堆序性质与结构性质的堆theHeap[hole,currentSize]。
+     * 堆排序算法，编程珠玑。
+     * 我的实现充满了bug，首先通过构造函数创建的数组的第一个元素x[0]没有意义
+     * @return 排好序的数组x[1,n]，x[0]没用
+     */
+    public T[] sort() {
+
+        //形成满足堆序性质和结构性质的堆
+        for(int i=2;i<=currentSize;i++){
+            siftUp(i);
+        }
+
+        T tmp;
+        for(int i=currentSize;i>=2;i--){
+            tmp=theHeap[1];
+            theHeap[1]=theHeap[i];
+            theHeap[i]=tmp;
+            siftDown(i-1);
+        }
+
+        return theHeap;
+    }
+
+    /**
+     * 上滤算法
      * @param hole 不满足堆序性质的元素的索引
      */
-    protected void siftDown(int hole){
+    private void siftUp(int hole){
+        int i=hole;
+        T tmp=theHeap[i];
+        //
+        while (true){
+            //到达顶端，结束上滤
+            if(i==1) break;
+            //如果满足了堆序性质，结束上滤
+            int parent=i/2;
+            if(theHeap[parent].compareTo(theHeap[i])<=0) break;
+            //否则，上滤
+            theHeap[i]=theHeap[parent];theHeap[parent]=tmp;
+            i=parent;
+        }
+    }
 
+    /**
+     * 下滤算法，对于不满足堆序性质的theHeap[1,n]，如果theHeap[2,n]满足堆序性质，那么可以将
+     * theHeap[1]下滤，得到满足堆序性质与结构性质的堆theHeap[1,n]。
+     * @param n 不满足堆序性质的元素的索引
+     */
+    protected void siftDown(int n){
+
+        int hole=1;
         int child;
         T tmp=theHeap[hole];
 
@@ -76,10 +122,10 @@ public class BinaryHeap<T extends Comparable<? super T>> implements Heap<T>{
             child=hole*2;
 
             //终止条件1：没有子结点
-            if(hole*2>currentSize) break;
+            if(hole*2>n) break;
 
             //找到最小的子结点
-            if((child+1)<=currentSize&&theHeap[child].compareTo(theHeap[child+1])>0)
+            if((child+1)<=n&&theHeap[child].compareTo(theHeap[child+1])>0)
                 child++;
 
             //终止条件2：最小的子结点都大于父结点

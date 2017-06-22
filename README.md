@@ -12,6 +12,8 @@
 4. [散列](./src/main/java/cumt/tj/learn/structures/hash)
     1. [分离链表法实现](./src/main/java/cumt/tj/learn/structures/hash/SeparateChainingHashTable.java)
     2. [平方探测法法实现](./src/main/java/cumt/tj/learn/structures/hash/QuadraticProbingHashTable.java)
+4. [堆](./src/main/java/cumt/tj/learn/structures/heap) (编程珠玑)
+    1. [二叉堆](./src/main/java/cumt/tj/learn/structures/heap/BinaryHeap.java)
 
 ## 2. 算法
 
@@ -24,6 +26,7 @@
     2. [插入排序](./src/main/java/cumt/tj/learn/algorithms/sort/InsertionSort.java)
     3. [归并排序](./src/main/java/cumt/tj/learn/algorithms/sort/MergeSort.java)
     4. [快速排序](./src/main/java/cumt/tj/learn/algorithms/sort/QuickSort.java)
+    5. [堆排序](./src/main/java/cumt/tj/learn/structures/heap/BinaryHeap.java) (编程珠玑)
 3. [向量类算法](./src/main/java/cumt/tj/learn/algorithms/vector)
     1. [向量旋转](./src/main/java/cumt/tj/learn/algorithms/vector/ArrayRotate.java) (编程珠玑)
     2. [后缀、中缀表达式相关算法](./src/main/java/cumt/tj/learn/algorithms/vector/Expression.java) 

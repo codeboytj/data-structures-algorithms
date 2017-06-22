@@ -8,4 +8,6 @@ public interface Heap<T>{
     void insert(T t);
     //删除最小元
     T deleteMin();
+    //堆排序
+    T[] sort();
 }
