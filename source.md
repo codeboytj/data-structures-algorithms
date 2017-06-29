@@ -1,6 +1,10 @@
 # data-structures-algorithms
 
-《数据结构与算法分析——Java语言描述版》读书笔记。
+读书笔记
+
+- *数据结构与算法分析——Java语言描述版*
+- *编程珠玑*
+- *编程之美*
 
 ## 数据结构
 
@@ -12,6 +16,8 @@
 4. [散列](./src/main/java/cumt/tj/learn/structures/hash)
     1. [分离链表法实现](./src/main/java/cumt/tj/learn/structures/hash/SeparateChainingHashTable.java)
     2. [平方探测法法实现](./src/main/java/cumt/tj/learn/structures/hash/QuadraticProbingHashTable.java)
+5. [堆](./src/main/java/cumt/tj/learn/structures/heap)
+    1. [二叉堆及堆排序算法](./src/main/java/cumt/tj/learn/structures/heap/BinaryHeap.java) (编程珠玑)
 
 ## 算法
 
