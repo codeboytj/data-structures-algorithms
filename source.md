@@ -30,3 +30,8 @@
     3. [向量的最大连续子向量之和](./src/main/java/cumt/tj/learn/algorithms/vector/MaxContiguousSubvectorSum.java) (编程珠玑) 
 4. [取样问题](./src/main/java/cumt/tj/learn/algorithms/Sample.java) (编程珠玑)
 5. [遍历](./src/main/java/cumt/tj/learn/algorithms/Traversal.java) 
+
+## 编程之美
+
+1. [游戏之乐](./src/main/java/cumt/tj/learn/beauty/game)
+    1. [让CPU占用率曲线听你指挥](./src/main/java/cumt/tj/learn/beauty/game/CPUDancer.java)
