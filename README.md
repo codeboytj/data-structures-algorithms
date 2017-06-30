@@ -18,6 +18,7 @@
     2. [平方探测法法实现](./src/main/java/cumt/tj/learn/structures/hash/QuadraticProbingHashTable.java)
 5. [堆](./src/main/java/cumt/tj/learn/structures/heap)
     1. [二叉堆及堆排序算法](./src/main/java/cumt/tj/learn/structures/heap/BinaryHeap.java) (编程珠玑)
+6. [表](./src/main/java/cumt/tj/learn/structures/list)
 
 ## 2. 算法
 
