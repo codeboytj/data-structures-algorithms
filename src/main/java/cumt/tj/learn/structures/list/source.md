@@ -37,3 +37,36 @@ find、insert、remove
 所以，对于链表的每个节点，我们让它既有指向后继元的链，也有指向前驱元的链。
 我们称之为**双链表**。
 同时，我们还应有指向第一项与末尾项的链。
+
+## 迭代器
+
+### 增强的for循环
+
+对于实现了Iterable接口的对象，如果对此施加一个增强的for循环，编译器会对其进行重写：
+
+```
+for(T t:coll)
+    System.out.println(t);
+```
+
+重写成：
+
+```
+Iterator<T> itr=coll.iterator();
+
+while(itr.hasNext()){
+    T t=itr.next();
+    System.out.println(t);
+}
+```
+
+### remove方法
+
+比起使用Collection的remove方法，我们更喜欢使用迭代器的remove方法，它的优点有：
+
+1. 当直接使用Iterator（而不是通过增强的for循环间接调用使），有一个基本法则是：如果
+对正在迭代的集合进行结构上的改变（add、remove以及clear方法等）时，迭代器将会不再合法
+（并且在其后使用的时候会抛出ConcurrentModificationException异常）。幸运的是，迭代器
+提供了自己的remove方法，调用这个remove方法的时候，迭代器仍然是合法的。
+2. Collection的remove方法必须首先找出要被删除的项。而迭代器在remove之前，就已经来到了
+要被删除元素的位置，这具有更高的效率。
