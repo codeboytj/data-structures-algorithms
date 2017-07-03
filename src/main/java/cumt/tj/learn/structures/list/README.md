@@ -64,7 +64,7 @@ while(itr.hasNext()){
 
 比起使用Collection的remove方法，我们更喜欢使用迭代器的remove方法，它的优点有：
 
-1. 当直接使用Iterator（而不是通过增强的for循环间接调用使），有一个基本法则是：如果
+1. 当使用Iterator，有一个基本法则是：如果
 对正在迭代的集合进行结构上的改变（add、remove以及clear方法等）时，迭代器将会不再合法
 （并且在其后使用的时候会抛出ConcurrentModificationException异常）。幸运的是，迭代器
 提供了自己的remove方法，调用这个remove方法的时候，迭代器仍然是合法的。

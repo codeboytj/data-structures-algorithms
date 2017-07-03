@@ -1,4 +1,4 @@
-# data-structures-algorithms
+# 数据结构与算法分析
 
 读书笔记
 
@@ -19,6 +19,7 @@
 5. [堆](./src/main/java/cumt/tj/learn/structures/heap)
     1. [二叉堆及堆排序算法](./src/main/java/cumt/tj/learn/structures/heap/BinaryHeap.java) (编程珠玑)
 6. [表](./src/main/java/cumt/tj/learn/structures/list)
+    1. [数组实现](./src/main/java/cumt/tj/learn/structures/list/MyArrayList.java)
 
 ## 算法
 
