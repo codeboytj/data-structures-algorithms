@@ -1,6 +1,8 @@
 package cumt.tj.learn.structures.list;
 
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * Created by sky on 17-7-4.
@@ -30,6 +32,9 @@ public class MyLinkedList<T> implements Iterable<T>,MyList<T>{
 
     //存储当前列表中元素的个数
     private int currentSize;
+
+    //记录修改次数，用来检查使用迭代器的过程中是否更改了集合结构
+    private int modCount;
 
     public MyLinkedList() {
         firstMarker =new Node<T>(null,null,null);
@@ -100,7 +105,8 @@ public class MyLinkedList<T> implements Iterable<T>,MyList<T>{
 
         //这样就成功地删除了一个元素
         currentSize--;
-
+        //修改了一次
+        modCount++;
 
     }
 
@@ -143,6 +149,8 @@ public class MyLinkedList<T> implements Iterable<T>,MyList<T>{
         theOld.previous=theNew;
         //现在列表中又多了一个元素了
         currentSize++;
+        //修改了一次
+        modCount++;
 
     }
 
@@ -198,6 +206,9 @@ public class MyLinkedList<T> implements Iterable<T>,MyList<T>{
     private class LinkedListIterator implements Iterator<T>{
 
         private Node<T> current=firstMarker.next;
+        private int expectCount=modCount;
+        //删除是否可行，删除了一次就不能在删除了
+        private boolean okToRemove;
 
         public boolean hasNext() {
             return current!=endMarker;
@@ -205,16 +216,29 @@ public class MyLinkedList<T> implements Iterable<T>,MyList<T>{
 
         public T next() {
 
+            if(modCount!=expectCount)
+                throw new ConcurrentModificationException();
+            if(!hasNext())
+                throw new NoSuchElementException();
+
             T nextItem=current.data;
 
             current=current.next;
+            okToRemove=true;
 
             return nextItem;
         }
 
         public void remove() {
 
+            if(modCount!=expectCount)
+                throw new ConcurrentModificationException();
+            if(!okToRemove)
+                throw new IllegalStateException();
+
             MyLinkedList.this.remove(current.previous);
+            expectCount++;
+            okToRemove=false;
 
         }
     }

@@ -4,6 +4,9 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
+
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -95,9 +98,29 @@ public class LinkedListTest {
     @Test
     public void iterator(){
         add();
+
+        thrown.expect(ConcurrentModificationException.class);
         for (Integer i:theList
              ) {
             System.out.println(i);
+
+            if(i.equals(3))
+                theList.remove(3);
         }
+    }
+
+    @Test
+    public void canRemoveTwice(){
+        add();
+
+        Iterator<Integer> itr=theList.iterator();
+        while (itr.hasNext()){
+            itr.next();
+            itr.remove();
+            thrown.expect(IllegalStateException.class);
+            itr.remove();
+            itr.remove();
+        }
+
     }
 }
