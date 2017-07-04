@@ -20,6 +20,7 @@
     1. [二叉堆及堆排序算法](./src/main/java/cumt/tj/learn/structures/heap/BinaryHeap.java) (编程珠玑)
 6. [表](./src/main/java/cumt/tj/learn/structures/list)
     1. [数组实现](./src/main/java/cumt/tj/learn/structures/list/MyArrayList.java)
+    2. [链表实现](./src/main/java/cumt/tj/learn/structures/list/MyLinkedList.java)
 
 ## 算法
 

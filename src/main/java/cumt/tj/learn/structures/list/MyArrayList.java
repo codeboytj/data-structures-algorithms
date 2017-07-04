@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
  * 2. 需要实现一种数组扩容的机制，应对数组被塞满的情况
  * 3. 实现Iterable接口的功能，这可能需要提供一个实现Iterator接口的内部类
  */
-public class MyArrayList<T> implements Iterable<T>{
+public class MyArrayList<T> implements Iterable<T>,MyList<T>{
 
     //内部实现列表的数组
     private T[] theList;
