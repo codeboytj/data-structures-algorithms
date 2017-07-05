@@ -5,6 +5,7 @@
 - *数据结构与算法分析——Java语言描述版*
 - *编程珠玑*
 - *编程之美*
+- *剑指Offer*
 
 ## 1. 数据结构
 
@@ -44,3 +45,5 @@
 
 1. [游戏之乐](./src/main/java/cumt/tj/learn/beauty/game)
     1. [让CPU占用率曲线听你指挥](./src/main/java/cumt/tj/learn/beauty/game/CPUDancer.java)
+    
+## 4. [剑指Offer](./src/main/java/cumt/tj/learn/offer)
