@@ -112,7 +112,7 @@ public class PrintLinkedList {
 /**
  * 栈实现
  */
-class Stack{
+class Stack<T>{
 
     Node currentMarker=new Node(null);
 
