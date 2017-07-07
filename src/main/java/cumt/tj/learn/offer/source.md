@@ -7,4 +7,5 @@
 - [用两个栈实现队列](./Stack2Deque.java)
 - [旋转数组的最小数字](./MinInRotateArray.java)
 - [斐波那契数列](./Fibonacci.java)
-- [跳台阶 ](./JumpFloor.java)
+- [跳台阶](./JumpFloor.java)
+- [变态跳台阶](./JumpFloorII.java)
