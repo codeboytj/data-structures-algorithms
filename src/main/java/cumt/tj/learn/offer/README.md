@@ -6,4 +6,5 @@
 - [重建二叉树](./RebuildBinaryTree.java)
 - [用两个栈实现队列](./Stack2Deque.java)
 - [旋转数组的最小数字](./MinInRotateArray.java)
-- [斐波那契数列](./MinInRotateArray.java)
+- [斐波那契数列](./Fibonacci.java)
+- [跳台阶 ](./JumpFloor.java)
