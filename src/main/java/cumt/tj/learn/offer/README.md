@@ -11,3 +11,4 @@
 - [变态跳台阶](./JumpFloorII.java)
 - [矩阵覆盖](./RectCover.java)
 - [二进制中1的个数](./NumberOf1.java)
+- [数值的整数次放](./Power.java)
