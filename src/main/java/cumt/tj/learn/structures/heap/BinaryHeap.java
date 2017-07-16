@@ -67,6 +67,7 @@ public class BinaryHeap<T extends Comparable<? super T>> implements Heap<T>{
     /**
      * 堆排序算法，编程珠玑。
      * 我的实现充满了bug，首先通过构造函数创建的数组的第一个元素x[0]没有意义
+     * 这个输出的是降序的，如果是最大堆的话，输出就是升序的
      * @return 排好序的数组x[1,n]，x[0]没用
      */
     public T[] sort() {
