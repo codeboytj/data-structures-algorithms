@@ -46,7 +46,9 @@ public class BinaryHeapTest {
     @Test
     public void sort(){
         Heap<String> theHeap=new BinaryHeap<String>(new String[]{"","234","123","566","12"});
-        System.out.print(theHeap.sort());
+        for (String s:theHeap.sort()) {
+            System.out.print(s);
+        }
 
     }
 }
