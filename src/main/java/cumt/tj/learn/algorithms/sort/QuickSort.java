@@ -114,8 +114,8 @@ public class QuickSort {
 //                已经交叉，跳出循环，这时就要交换枢纽元和右移动指针的位置，这样枢纽元左边的小，右边的大
             tmp=a[pivotPos];a[pivotPos]=a[rightMovePos];a[rightMovePos]=tmp;
 //            递归
-            simpleSort(a,leftPos,rightMovePos-1);
-            simpleSort(a,rightMovePos+1,rightPos);
+            quickSort(a,leftPos,rightMovePos-1);
+            quickSort(a,rightMovePos+1,rightPos);
         }
     }
 
