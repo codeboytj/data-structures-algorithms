@@ -22,3 +22,4 @@
 - [包含min函数的栈](./StackWithMin.java)
 - [栈的压入、弹出序列](./IsPopOrder.java)
 - [从上往下打印二叉树](./PrintFromTopToBottom.java)
+- [二叉搜索树的后序遍历序列](./VerifySquenceOfBST.java)
