@@ -33,3 +33,4 @@
 - [整数中1出现的次数（从1到n整数中1出现的次数）](./NumberOf1Between1AndN.java)
 - [把数组排成最小的数](./PrintMinNumber.java)
 - [丑数](./GetUglyNumber.java)
+- [第一个只出现一次的字符](./FirstNotRepeatingChar.java)
