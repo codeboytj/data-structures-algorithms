@@ -35,3 +35,4 @@
 - [丑数](./GetUglyNumber.java)
 - [第一个只出现一次的字符](./FirstNotRepeatingChar.java)
 - [数组中的逆序对](./InversePairs.java)
+- [两个链表的第一个公共结点](./FindFirstCommonNode.java)
