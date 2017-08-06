@@ -39,3 +39,4 @@
 - [数字在排序数组中出现的次数](./GetNumberOfK.java)
 - [二叉树的深度](./TreeDepth.java)
 - [平衡二叉树](./IsBalancedTree.java)
+- [和为S的两个数字](./FindNumbersWithSum.java)
