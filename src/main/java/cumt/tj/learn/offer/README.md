@@ -44,3 +44,5 @@
 - [左旋转字符串](./LeftRotateString.java)
 - [翻转单词顺序列](./ReverseSentence.java)
 - [n个骰子的点数](./PrintProbability.java)
+- [扑克牌顺子](./IsContinuous.java)
+

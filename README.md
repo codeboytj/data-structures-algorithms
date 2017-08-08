@@ -34,6 +34,7 @@
     2. [插入排序](./src/main/java/cumt/tj/learn/algorithms/sort/InsertionSort.java)
     3. [归并排序](./src/main/java/cumt/tj/learn/algorithms/sort/MergeSort.java)
     4. [快速排序](./src/main/java/cumt/tj/learn/algorithms/sort/QuickSort.java)
+    5. [冒泡排序](./src/main/java/cumt/tj/learn/algorithms/sort/BubbleSort.java)
 3. [向量类算法](./src/main/java/cumt/tj/learn/algorithms/vector)
     1. [向量旋转](./src/main/java/cumt/tj/learn/algorithms/vector/ArrayRotate.java) (编程珠玑)
     2. [后缀、中缀表达式相关算法](./src/main/java/cumt/tj/learn/algorithms/vector/Expression.java) 
