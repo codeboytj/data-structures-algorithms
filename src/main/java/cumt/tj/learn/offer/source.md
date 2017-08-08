@@ -46,4 +46,5 @@
 - [n个骰子的点数](./PrintProbability.java)
 - [扑克牌顺子](./IsContinuous.java)
 - [圆圈中最后剩下的数](./LastRemaining.java)
+- [求1+2+3+...+n](./Sum.java)
 
