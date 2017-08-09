@@ -50,4 +50,5 @@
 - [不用加减乘除做加法](./Add.java)
 - [把字符串转换成整数](./StrToInt.java)
 - [数组中重复的数字](./Duplicate.java)
+- [构建乘积数组](./Multiply.java)
 
