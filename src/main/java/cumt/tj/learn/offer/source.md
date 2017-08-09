@@ -48,4 +48,5 @@
 - [圆圈中最后剩下的数](./LastRemaining.java)
 - [求1+2+3+...+n](./Sum.java)
 - [不用加减乘除做加法](./Add.java)
+- [把字符串转换成整数](./StrToInt.java)
 
