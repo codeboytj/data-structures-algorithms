@@ -52,4 +52,5 @@
 - [数组中重复的数字](./Duplicate.java)
 - [构建乘积数组](./Multiply.java)
 - [正则表达式匹配](./Match.java)
+- [表示数值的字符串](./IsNumeric.java)
 
