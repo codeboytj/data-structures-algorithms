@@ -53,4 +53,5 @@
 - [构建乘积数组](./Multiply.java)
 - [正则表达式匹配](./Match.java)
 - [表示数值的字符串](./IsNumeric.java)
+- [字符流中第一个不重复的字符](./FirstAppearingOnce.java)
 
