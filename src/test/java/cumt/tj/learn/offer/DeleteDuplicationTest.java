@@ -41,7 +41,8 @@ public class DeleteDuplicationTest {
         firstDD.next=second;
 
         DeleteDuplication dd=new DeleteDuplication();
-        assertEquals(dd.deleteDuplication(second,secondD),null);
+        dd.deleteDuplication(firstDD,second,secondD);
+        assertEquals(firstDD.next,null);
 
         firstDD=new ListNode(1);
         second=new ListNode(2);
@@ -50,7 +51,8 @@ public class DeleteDuplicationTest {
         second.next=secondD;
         firstDD.next=second;
         secondD.next=third;
-        assertEquals(dd.deleteDuplication(second,secondD).val,3);
+        dd.deleteDuplication(firstDD,second,secondD);
+        assertEquals(firstDD.next.val,3);
 
     }
 
