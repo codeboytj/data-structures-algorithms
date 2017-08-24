@@ -58,3 +58,4 @@
 - [删除链表中重复的结点](./DeleteDuplication.java)
 - [二叉树的下一个结点](./GetNextTreeNode.java)
 - [对称的二叉树](./IsSymmetrical.java)
+- [按之字形顺序打印二叉树](./PrintByZhi.java)
