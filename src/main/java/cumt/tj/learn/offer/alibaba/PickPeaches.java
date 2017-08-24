@@ -15,6 +15,13 @@ import java.util.Scanner;
  *
  * 思路：
  * 就是找一个最长的递增子序列
+ * 动态规划：
+ *     利用数组len[i]存储，以第i个元素开头的最长递增序列长度
+ *     对于第j个元素，使用max存储以j开头的当前序列中的最大值
+ *                    使用maxLen存储以j开头的当前序列的最大长度
+ *                    从j到length遍历，对于k>j，且a[k]>max，比较
+ *                          a[k]+1与maxLen的大小，大则替换
+ *     最后遍历len，找出最大值
  *
  */
 public class PickPeaches {
@@ -23,30 +30,54 @@ public class PickPeaches {
     /** 当然，你也可以不按照这个模板来作答，完全按照自己的想法来 ^-^  **/
     static int pick(int[] peaches) {
 
-        //存储当前最长子序列
-        int subLen=0;
+        int length;
+        //空数组
+        if(peaches==null || (length=peaches.length)==0) return 0;
+
+        //存储以第i个元素开头的最长递增序列长度
+        int[] lens=new int[length];
+        //存储以第i个元素开头的最长递增序列的最大值
+        int[] maxes=new int[length];
+
+        //初始化
+        lens[length-1]=1;
+        maxes[length-1]=peaches[length-1];
+
+        //遍历
+        //存储当前元素开头的最长子序列长度
+        int maxLen=1;
+        int currentLen=0;
         //存储当前子序列中的最大元素
-        int max=-1;
+        int max=0;
+        for(int i=length-2;i>=0;i--){
 
-        for(int i=0;i<peaches.length;i++){
-
-            //最后一个元素
-            if(i==(peaches.length-1)){
-                if(peaches[i]>max) subLen++;
-                continue;
+            max=peaches[i];
+            maxLen=1;
+            //在(i,length)中的lens进行遍历
+            for(int j=i+1;j<length;j++){
+                //只能摘更大的
+                if(peaches[j]>peaches[i]){
+                    //peaches[i]+以peaches[j]开头的子序列长度
+                    currentLen=lens[j]+1;
+                    if(currentLen>maxLen){
+                        //比之前的长，替换
+                        maxLen=currentLen;
+                        max=maxes[j];
+                    }
+                }
             }
 
-            if(peaches[i]<peaches[i+1]){
-                //如果下一个大于当前的话，先摘当前的
-                subLen++;
-                max=peaches[i];
-            }else{
-                //如果下一个小于当前的话，先不摘当前的
-            }
-
+            lens[i]=maxLen;
+            maxes[i]=max;
         }
 
-        return subLen;
+        //找出最大值
+        max=0;
+        for(int i:lens){
+            max=(max<i)?i:max;
+        }
+
+        return max;
 
     }
 
