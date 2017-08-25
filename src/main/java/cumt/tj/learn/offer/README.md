@@ -59,3 +59,4 @@
 - [二叉树的下一个结点](./GetNextTreeNode.java)
 - [对称的二叉树](./IsSymmetrical.java)
 - [按之字形顺序打印二叉树](./PrintByZhi.java)
+- [把二叉树打印成多行](./PrintMultLines.java)
