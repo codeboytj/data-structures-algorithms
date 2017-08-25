@@ -60,3 +60,4 @@
 - [对称的二叉树](./IsSymmetrical.java)
 - [按之字形顺序打印二叉树](./PrintByZhi.java)
 - [把二叉树打印成多行](./PrintMultLines.java)
+- [序列化二叉树](./SerializeTree.java)
