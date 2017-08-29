@@ -64,3 +64,4 @@
 - [二叉搜索树的第k个结点](./KthNode.java)
 - [数据流中的中位数](./MedianInStream.java)
 - [滑动窗口的最大值](./MaxInWindows.java)
+- [矩阵中的路径](./HasPath.java)
