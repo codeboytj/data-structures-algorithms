@@ -29,7 +29,6 @@ public class HasPath {
             for(int j=0;j<cols;j++){
                 matrix2[i][j]=matrix[cols*i+j];
             }
-
         }
 
         return hasPath(matrix2,0,0,str,0,new boolean[rows][cols]);
