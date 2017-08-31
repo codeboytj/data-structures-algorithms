@@ -61,3 +61,8 @@
 - [按之字形顺序打印二叉树](./PrintByZhi.java)
 - [把二叉树打印成多行](./PrintMultLines.java)
 - [序列化二叉树](./SerializeTree.java)
+- [二叉搜索树的第k个结点](./KthNode.java)
+- [数据流中的中位数](./MedianInStream.java)
+- [滑动窗口的最大值](./MaxInWindows.java)
+- [矩阵中的路径](./HasPath.java)
+- [机器人的运动范围](./MovingCount.java)
