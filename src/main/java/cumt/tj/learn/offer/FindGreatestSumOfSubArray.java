@@ -44,6 +44,8 @@ public class FindGreatestSumOfSubArray {
         System.out.println(findGreatestSumOfSubArray.findGreatestSumOfSubArray(new int[]{6,-3,-2,7,-15,1,2,2}));
         System.out.println(findGreatestSumOfSubArray.findGreatestSumOfSubArray(new int[]{}));
         System.out.println(findGreatestSumOfSubArray.findGreatestSumOfSubArray(new int[]{-3}));
+        System.out.println(findGreatestSumOfSubArray.findGreatestSumOfSubArray(new int[]{-23,17,-7,11,-2,1,-34}));
+        System.out.println(findGreatestSumOfSubArray.findGreatestSumOfSubArray(new int[]{-23,7,-7}));
 
     }
 
