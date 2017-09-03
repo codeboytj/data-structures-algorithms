@@ -41,6 +41,8 @@
     3. [向量的最大连续子向量之和](./src/main/java/cumt/tj/learn/algorithms/vector/MaxContiguousSubvectorSum.java) (编程珠玑) 
 4. [取样问题](./src/main/java/cumt/tj/learn/algorithms/Sample.java) (编程珠玑)
 5. [遍历](./src/main/java/cumt/tj/learn/algorithms/Traversal.java) 
+6. [动态规划](./src/main/java/cumt/tj/learn/algorithms/dp) 
+    1. [双核处理(01背包问题)](./src/main/java/cumt/tj/learn/algorithms/dp/DualCore.java) 
 
 ## 编程之美
 
