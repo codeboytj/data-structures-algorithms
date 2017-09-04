@@ -42,7 +42,7 @@
 4. [取样问题](./src/main/java/cumt/tj/learn/algorithms/Sample.java) (编程珠玑)
 5. [遍历](./src/main/java/cumt/tj/learn/algorithms/Traversal.java) 
 6. [动态规划](./src/main/java/cumt/tj/learn/algorithms/dp) 
-    1. [双核处理(01背包问题)](./src/main/java/cumt/tj/learn/algorithms/dp/DualCore.java) 
+7. [分治算法](./src/main/java/cumt/tj/learn/algorithms/divide) 
 
 ## 编程之美
 
