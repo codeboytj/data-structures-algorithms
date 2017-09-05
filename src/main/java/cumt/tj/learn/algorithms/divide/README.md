@@ -4,3 +4,4 @@
 
 - [快速乘](./QuickMult.java)
 - [快速幂](./QuickPow.java)
+- [矩阵快速幂](./QuickMatrixPow.java)
