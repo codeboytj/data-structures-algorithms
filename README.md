@@ -43,6 +43,7 @@
 5. [遍历](./src/main/java/cumt/tj/learn/algorithms/Traversal.java) 
 6. [动态规划](./src/main/java/cumt/tj/learn/algorithms/dp) 
 7. [分治算法](./src/main/java/cumt/tj/learn/algorithms/divide) 
+8. [回溯法](./src/main/java/cumt/tj/learn/algorithms/backtracking) 
 
 ## 3. 编程之美
 
