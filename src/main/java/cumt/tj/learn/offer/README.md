@@ -65,3 +65,6 @@
 - [数据流中的中位数](./MedianInStream.java)
 - [滑动窗口的最大值](./MaxInWindows.java)
 - [矩阵中的路径](./HasPath.java)
+- [机器人的运动范围](./MovingCount.java)
+- [最长公共子序列](./LCS.java)
+- [最长公共子串](./LongestSubstring.java)
