@@ -1,8 +1,5 @@
 package cumt.tj.learn.offer;
 
-import java.util.LinkedList;
-import java.util.List;
-
 /**
  * Created by sky on 17-10-7.
  *
@@ -23,12 +20,37 @@ import java.util.List;
 public class LCS {
 
     private int maxLen;//最长公共子序列长度
+    private int[][] ps;
 
     public int findLCS(String A, int n, String B, int m) {
 
-        findLCS(A,n,B,m,0,0,0);
-        return maxLen;
+        ps=new int[n+1][m+1];
+        ps[0]=new int[m+1];
 
+        for(int i=1;i<=n;i++){
+
+            ps[i]=new int[m+1];
+
+            for(int j=1;j<=m;j++){
+
+                if(A.charAt(i-1) == B.charAt(j-1))
+                    ps[i][j] = ps[i-1][j-1] + 1;
+                else {
+                    ps[i][j] = Math.max(ps[i-1][j],ps[i][j-1]);
+                }
+            }
+        }
+
+        return ps[n][m];
+
+    }
+
+    public int findChar(String A,int startA,int endA,char b){
+        for(int i=startA;i<endA;i++){
+            if(A.charAt(i)==b)
+                return i;
+        }
+        return -1;
     }
 
     public void findLCS(String A, int n, String B, int m,int startB,int posA,int len) {
@@ -73,50 +95,6 @@ public class LCS {
 
         return -1;
 
-    }
-
-    public static class PublicSeries{
-
-        private List<Integer> indexA;//公共子序列的每个字符在A中的索引
-        private List<Integer> indexB;//公共子序列的每个字符在B中的索引
-
-        public PublicSeries() {
-            indexA=new LinkedList<Integer>();
-            indexB=new LinkedList<Integer>();
-        }
-
-        public void addHead(int indexOfA, int indexOfB){
-            indexA.add(0,indexOfA);
-            indexB.add(0,indexOfB);
-        }
-
-        public void add(int indexOfA, int indexOfB){
-            indexA.add(indexOfA);
-            indexB.add(indexOfB);
-        }
-
-        public int getLastIndexOfA(){
-            int length=length();
-            return length==0?-1:indexA.get(length-1);
-        }
-
-        public int getLastIndexOfB(){
-            int length=length();
-            return length==0?-1:indexB.get(length-1);
-        }
-
-
-        public List<Integer> getIndexA() {
-            return indexA;
-        }
-
-        public List<Integer> getIndexB() {
-            return indexB;
-        }
-
-        public int length(){
-            return indexA.size();
-        }
     }
 
 }
